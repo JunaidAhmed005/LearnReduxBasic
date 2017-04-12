@@ -11,12 +11,12 @@ $(document).foundation();
 // App css
 require('style-loader!css-loader!sass-loader!applicationStyles');
 
-ReactDOM.render(
-	<p>Boiler plate 3 project</p>,
-	document.getElementById("app")
-);
+// ReactDOM.render(
+// 	<p>Boiler plate 3 project</p>,
+// 	document.getElementById("app")
+// );
 
 //require("./redux-example.jsx");
-require("./redux-todo-example.jsx");
+ require("./redux-todo-example.jsx");
 
 //require("./redux-purefunc-example.jsx");

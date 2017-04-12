@@ -18,7 +18,22 @@ var reducer = (state = {name: "Anonmous"}, action) => {
     }
 };
 
-var store = redux.createStore(reducer);
+var store = redux.createStore(reducer, redux.compose(
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+));
+
+// f => f is the short form of: 
+// (f) => {
+//     return f;
+// }
+
+//Subscribe to changes
+var unsubscribe = store.subscribe(()=> {
+    var state = store.getState();
+
+    console.log("Name is: ", state.name);
+    document.getElementById("app").innerHTML = state.name;
+});
 
 var currentState = store.getState();
 console.log("Current State: ", currentState);
@@ -30,4 +45,10 @@ var action = {
 
 store.dispatch(action);
 
-console.log("Name should be Junaid", store.getState());
+//unsubscribe();
+store.dispatch({
+    type: "CHANGE_NAME",
+    name: "Ahmed"
+});
+
+//console.log("Name should be Junaid", store.getState());

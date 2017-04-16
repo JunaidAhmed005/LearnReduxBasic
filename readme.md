@@ -1,1 +1,1 @@
-React Timer Application
+Basic Redux Learning
